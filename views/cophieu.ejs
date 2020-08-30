@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<%- include('header'); %>
+
+    <body>
+
+        <div class="fh5co-loader"></div>
+
+        <div id="page">
+            <nav class="fh5co-nav" role="navigation">
+                <div class="container-wrap">
+                    <%- include('menu'); %>
+                        <script>
+                            document.getElementById("cophieu").classList.add('active');
+                        </script>
+                </div>
+            </nav>
+            <div class="container-wrap">
+                <div id="fh5co-about">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center animate-box">
+                            <img src="/images/page404.jpg" alt="anhtuanit" class="img-responsive" style="display: inline;">
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                            <div class="about-desc">
+                                <p>Chức năng đang được cặp nhật!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END container-wrap -->
+            <%- include('footer'); %>
+                <!-- END container-wrap -->
+        </div>
+
+        <div class="gototop js-top">
+            <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="js/jquery.easing.1.3.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Waypoints -->
+        <script src="js/jquery.waypoints.min.js"></script>
+        <!-- Flexslider -->
+        <script src="js/jquery.flexslider-min.js"></script>
+        <!-- Magnific Popup -->
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/magnific-popup-options.js"></script>
+        <!-- Counters -->
+        <script src="js/jquery.countTo.js"></script>
+        <!-- Main -->
+        <script src="js/main.js"></script>
+
+    </body>
+
+</html>
