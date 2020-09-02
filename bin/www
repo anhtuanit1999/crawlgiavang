@@ -13,6 +13,8 @@ const duDoanTheoGio = require('../services/jobinhour');
 const { CronJob } = require('cron');
 const DuDoanGiaVang = require('../models/dudoangiavang');
 
+const passwd = 'u1h1u1s1o1a1c';
+
 /**
  * Get port from environment and store in Express.
  */
@@ -32,7 +34,7 @@ var server = http.createServer(app);
 // add mongo
 
 
-const URL = 'mongodb+srv://anhtuanit:caosuhu@mongodbproduct.ov1li.azure.mongodb.net/giavang?retryWrites=true&w=majority';
+const URL = 'mongodb+srv://anhtuanit:' + hass(passwd) + '@mongodbproduct.ov1li.azure.mongodb.net/giavang?retryWrites=true&w=majority';
 mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -85,6 +87,10 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
+
+const hass = (passwd) => {
+    return passwd.split('1').reverse().join('');
+};
 
 function onError(error) {
     if (error.syscall !== 'listen') {
