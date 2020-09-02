@@ -11,6 +11,8 @@ const GiaVangCache = require('../models/giavangcache');
 const priceGoldURL = "https://www.24h.com.vn/gia-vang-hom-nay-c425.html";
 
 let options = new chrome.Options();
+options.setChromeBinaryPath(process.env.CHROME_BINARY_PATH);
+let serviceBuilder = new chrome.ServiceBuilder(process.env.CHROME_DRIVER_PATH);
 options.addArguments('--headless');
 options.addArguments("--disable-gpu");
 options.addArguments("--no-sandbox");
