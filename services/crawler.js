@@ -9,10 +9,16 @@ const GiaVangTB = require('../models/giavangtb');
 const GiaVangCache = require('../models/giavangcache');
 
 const priceGoldURL = "https://www.24h.com.vn/gia-vang-hom-nay-c425.html";
+
+let options = new chrome.Options();
+options.addArguments('--headless');
+options.addArguments("--disable-gpu");
+options.addArguments("--no-sandbox");
 // Lay du lieu gia vang
 function crawler() {
     const driver = new webdriver.Builder()
         .forBrowser('chrome')
+        .setChromeOptions(options)
         .build();
     driver.get(priceGoldURL)
         .then(() => driver.wait(until.titleIs("Giá vàng hôm nay, Gia vang Sjc online, giá vàng 9999 PNJ"), 1000))
