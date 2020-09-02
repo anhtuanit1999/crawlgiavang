@@ -6,6 +6,7 @@ const cheerio = require('cheerio');
 const cheerioAdv = require('cheerio-advanced-selectors');
 const GiaVang = require('../models/giavang');
 const GiaVangTB = require('../models/giavangtb');
+const GiaVangCache = require('../models/giavangcache');
 
 const priceGoldURL = "https://www.24h.com.vn/gia-vang-hom-nay-c425.html";
 // Lay du lieu gia vang
@@ -24,12 +25,22 @@ function crawler() {
             });
             return arrGiaVang;
         })
-        .then((arrGiaVang) => {
+        .then(async(arrGiaVang) => {
             let giaVangTB = handleData(arrGiaVang);
+            arrGiaVang.sort((a, b) => b.giaMua - a.giaMua).length = 3;
+            await GiaVang.deleteMany({}); // Chỉ lưu giá vàng của 3 doanh nghiệp có giá mua cao nhất
+            await arrGiaVang.forEach(ele => ele.save());
             return giaVangTB;
         })
         .then(async(giaVangTB) => {
-            await giaVangTB.save();
+            await giaVangTB.save(); // Lưu các giá trị giá vàng trung bình theo từng giờ để tính toán dự đoán
+            let giaVangCache = new GiaVangCache({
+                giaMua: await giaVangTB.giaMuaTB,
+                giaBan: await giaVangTB.giaBanTB,
+                ngayGiaoDich: await giaVangTB.thoiGianGiaoDich
+            });
+            await GiaVangCache.deleteMany({}); // Chỉ lưu 1 giá vàng dùng để tăng tốc độ truy xuất tới mongodb
+            await giaVangCache.save();
         })
         .then(() => driver.quit())
         .catch(err => console.log(err));

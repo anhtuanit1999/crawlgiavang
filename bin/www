@@ -9,6 +9,9 @@ var debug = require('debug')('crawlgiavang:server');
 var http = require('http');
 const mongoose = require('mongoose');
 const crawler = require('../services/crawler');
+const duDoanTheoGio = require('../services/jobinhour');
+const { CronJob } = require('cron');
+const DuDoanGiaVang = require('../models/dudoangiavang');
 
 /**
  * Get port from environment and store in Express.
@@ -29,7 +32,7 @@ var server = http.createServer(app);
 // add mongo
 
 
-const URL = 'mongodb://localhost:27017/giavang';
+const URL = 'mongodb+srv://anhtuanit:caosuhu@mongodbproduct.ov1li.azure.mongodb.net/giavang?retryWrites=true&w=majority';
 mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -37,9 +40,22 @@ mongoose.connect(URL, {
 });
 mongoose.connection.once('open', () => {
     crawler();
-    setInterval(() => {
+    duDoanTheoGio(1)
+        .then(async(res) => {
+            await DuDoanGiaVang.deleteMany({});
+            await res.save();
+        })
+        .catch((err) => console.log(err));
+    let job = new CronJob('* * 1 * * *', () => {
         crawler();
-    }, 3600000);
+        duDoanTheoGio(1)
+            .then(async(res) => {
+                await DuDoanGiaVang.deleteMany({});
+                await res.save();
+            })
+            .catch((err) => console.log(err));
+    }, null, true, 'Asia/Ho_Chi_Minh');
+    job.start();
 });
 server.listen(port);
 server.on('error', onError);

@@ -17,17 +17,59 @@
                 </div>
             </nav>
             <div class="container-wrap">
-                <div id="fh5co-about">
+                <div id="fh5co-services">
                     <div class="row">
-                        <div class="col-md-10 col-md-offset-1 text-center animate-box">
-                            <img src="/images/page404.jpg" alt="anhtuanit" class="img-responsive" style="display: inline;">
-                        </div>
-                        <div class="col-md-8 col-md-offset-2 text-center animate-box">
-                            <div class="about-desc">
-                                <p>Chức năng đang được cặp nhật!</p>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services">
+                                <span class="icon">
+							<i class="icon-note"></i>
+						</span>
+                                <div class="desc">
+                                    <h3><a href="#">Thu thập</a></h3>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services">
+                                <span class="icon">
+							<i class="icon-wrench"></i>
+						</span>
+                                <div class="desc">
+                                    <h3><a href="#">Tính toán</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center animate-box">
+                            <div class="services">
+                                <span class="icon">
+							<i class="icon-github"></i>
+						</span>
+                                <div class="desc">
+                                    <h3><a href="#">Dự đoán</a></h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center animate-box">
+                            <h3><a href="#">Giá Vàng</a></h3>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Giá mua sau một ngày</th>
+                                    <td>
+                                        <%= duDoanGiaVang.giaMuaDaDuDoan %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Giá Bán sau một ngày</th>
+                                    <td>
+                                        <%= duDoanGiaVang.giaBanDaDuDoan %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
             <!-- END container-wrap -->

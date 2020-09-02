@@ -7,6 +7,6 @@ const GiaVangCacheSchema = new Schema({
     ngayGiaoDich: Number
 });
 
-const GiaVangCache = mongoose.model('GiaVang', GiaVangCacheSchema);
+const GiaVangCache = mongoose.model('GiaVangCache', GiaVangCacheSchema);
 
 module.exports = GiaVangCache;

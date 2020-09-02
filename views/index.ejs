@@ -55,15 +55,21 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>Giá mua trung bình</th>
-                                    <td>500,600,700 VND</td>
+                                    <td>
+                                        <%= giaVangCache.giaMuaTB %>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Giá Bán trung bình</th>
-                                    <td>500,600,700 VND</td>
+                                    <td>
+                                        <%= giaVangCache.giaBanTB %>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Ngày giao dịch</th>
-                                    <td>Cập nhật 13:39 (30/08/2020) </td>
+                                    <td>
+                                        <%= giaVangCache.thoiGianGiaoDich %>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -83,15 +89,15 @@
                         <div class="col-md-8 col-md-offset-2">
                             <div class="row">
                                 <div class="col-md-3 text-center">
-                                    <span class="fh5co-counter js-counter" data-from="0" data-to="3452" data-speed="5000" data-refresh-interval="50"></span>
-                                    <span class="fh5co-counter-label">Benifits of Month</span>
+                                    <span class="fh5co-counter js-counter" data-from="0" data-to="<%=luotKhachTruyCap.khachTruyCap %>" data-speed="2000" data-refresh-interval="50"></span>
+                                    <span class="fh5co-counter-label">Lượt truy cập</span>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <span class="fh5co-counter js-counter" data-from="0" data-to="234" data-speed="5000" data-refresh-interval="50"></span>
-                                    <span class="fh5co-counter-label">Benifits of Day</span>
+                                    <span class="fh5co-counter js-counter" data-from="0" data-to="234" data-speed="3000" data-refresh-interval="50"></span>
+                                    <span class="fh5co-counter-label">Lượt hữu ích</span>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <span class="fh5co-counter js-counter" data-from="0" data-to="6542" data-speed="5000" data-refresh-interval="50"></span>
+                                    <span class="fh5co-counter js-counter" data-from="0" data-to="6542" data-speed="4000" data-refresh-interval="50"></span>
                                     <span class="fh5co-counter-label">Clients of Month</span>
                                 </div>
                                 <div class="col-md-3 text-center">
@@ -124,8 +130,10 @@
                                 <a href="#" class="blog-post">
                                     <span class="img" style="background-image: url(images/blog-2.jpg);"></span>
                                     <div class="desc">
-                                        <h3>SJC Đà Nẵng</h3>
-                                        <span class="cat" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">	56,920,000 VND</span>
+                                        <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                            <%= top3[0].congTy %>
+                                        </h3>
+                                        <span class="cat" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= top3[0].giaMua %></span>
                                     </div>
                                 </a>
                             </div>
@@ -133,8 +141,10 @@
                                 <a href="#" class="blog-post">
                                     <span class="img" style="background-image: url(images/blog-1.jpg);"></span>
                                     <div class="desc">
-                                        <h3>SJC Hà Nội</h3>
-                                        <span class="cat" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">	56,920,000 VND</span>
+                                        <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                            <%= top3[1].congTy %>
+                                        </h3>
+                                        <span class="cat" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= top3[1].giaMua %></span>
                                     </div>
                                 </a>
                             </div>
@@ -142,8 +152,10 @@
                                 <a href="#" class="blog-post">
                                     <span class="img" style="background-image: url(images/blog-3.jpg);"></span>
                                     <div class="desc">
-                                        <h3>SJC TP HCM</h3>
-                                        <span class="cat" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">	56,900,000 VND</span>
+                                        <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                            <%= top3[2].congTy %>
+                                        </h3>
+                                        <span class="cat" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"><%= top3[2].giaMua %></span>
                                     </div>
                                 </a>
                             </div>
