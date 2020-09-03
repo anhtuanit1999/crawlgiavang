@@ -9,10 +9,10 @@ const DuDoanGiaVang = require('../models/dudoangiavang');
 let luotKhachTruyCap = new Visitor({
     khachTruyCap: 127
 });
+luotKhachTruyCap.save();
 router.get('/', async function(req, res, next) {
-    await ++luotKhachTruyCap.khachTruyCap;
-    await Visitor.deleteMany({});
-    await luotKhachTruyCap.save();
+    ++luotKhachTruyCap.khachTruyCap;
+    await Visitor.findByIdAndUpdate(luotKhachTruyCap._id, { $set: { khachTruyCap: luotKhachTruyCap.khachTruyCap } });
     let giaVangCache = await loadData();
     let top3 = await loadData2();
     res.render('index', { giaVangCache, top3, luotKhachTruyCap });
