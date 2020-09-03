@@ -10,7 +10,6 @@ var http = require('http');
 const mongoose = require('mongoose');
 const crawler = require('../services/crawler');
 const duDoanTheoGio = require('../services/jobinhour');
-const { CronJob } = require('cron');
 const DuDoanGiaVang = require('../models/dudoangiavang');
 const hass = require('../services/hasspass');
 
@@ -50,7 +49,7 @@ mongoose.connection.once('open', () => {
             await res.save();
         })
         .catch((err) => console.log(err));
-    let job = new CronJob('* * 1 * * *', () => {
+    setInterval(() => {
         crawler();
         duDoanTheoGio(1)
             .then(async(res) => {
@@ -58,8 +57,7 @@ mongoose.connection.once('open', () => {
                 await res.save();
             })
             .catch((err) => console.log(err));
-    }, null, true, 'Asia/Ho_Chi_Minh');
-    job.start();
+    }, 3600000);
 });
 server.listen(port);
 server.on('error', onError);
