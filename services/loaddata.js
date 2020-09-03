@@ -1,5 +1,5 @@
 const GiaVangCache = require('../models/giavangcache');
-const { format } = require('date-fns');
+const { formatToTimeZone } = require('date-fns-timezone');
 const GiaVang = require('../models/giavang');
 const DuDoanGiaVang = require('../models/dudoangiavang');
 
@@ -9,7 +9,7 @@ const loadData = async() => {
     return {
         giaMuaTB: formatCurrent(giaMua, 'VND'),
         giaBanTB: formatCurrent(giaBan, 'VND'),
-        thoiGianGiaoDich: 'Cập nhật' + format(new Date(ngayGiaoDich), ' hh:mm (dd/MM/yyyy)')
+        thoiGianGiaoDich: 'Cập nhật' + formatToTimeZone(new Date(ngayGiaoDich), ' hh:mm (DD/MM/YYYY)', { timeZone: 'Asia/Ho_Chi_Minh' })
     };
 };
 

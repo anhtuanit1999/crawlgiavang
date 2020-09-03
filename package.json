@@ -10,7 +10,7 @@
         "cheerio-advanced-selectors": "^2.0.1",
         "chromedriver": "^85.0.0",
         "cookie-parser": "~1.4.4",
-        "date-fns": "^2.16.0",
+        "date-fns-timezone": "^0.1.4",
         "debug": "~2.6.9",
         "ejs": "~2.6.1",
         "express": "~4.16.1",

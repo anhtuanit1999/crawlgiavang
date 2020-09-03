@@ -47,6 +47,7 @@ function crawler() {
                 giaBan: await giaVangTB.giaBanTB,
                 ngayGiaoDich: await giaVangTB.thoiGianGiaoDich
             });
+            console.log(giaVangCache);
             await GiaVangCache.deleteMany({}); // Chỉ lưu 1 giá vàng dùng để tăng tốc độ truy xuất tới mongodb
             await giaVangCache.save();
         })
