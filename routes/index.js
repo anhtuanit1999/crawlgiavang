@@ -9,15 +9,12 @@ const DuDoanGiaVang = require('../models/dudoangiavang');
 let luotKhachTruyCap = new Visitor({
     khachTruyCap: 127
 });
-Visitor.deleteMany({});
-luotKhachTruyCap.save();
 router.get('/', async function(req, res, next) {
-    luotKhachTruyCap.khachTruyCap++;
+    await ++luotKhachTruyCap.khachTruyCap;
     await Visitor.deleteMany({});
     await luotKhachTruyCap.save();
     let giaVangCache = await loadData();
     let top3 = await loadData2();
-    // console.log(luotKhachTruyCap.khachTruyCap);
     res.render('index', { giaVangCache, top3, luotKhachTruyCap });
 });
 
@@ -31,7 +28,6 @@ router.get('/contact', function(req, res, next) {
 
 router.get('/dudoan', async function(req, res, next) {
     let duDoanGiaVang = await loadData3();
-    console.log(duDoanGiaVang);
     res.render('dudoan', { duDoanGiaVang });
 });
 

@@ -31,6 +31,10 @@ const loadData2 = async() => {
 
 const loadData3 = async() => {
     let duDoanGiaVang = await DuDoanGiaVang.find({});
+    console.log({
+        giaMuaDaDuDoan: formatCurrent(duDoanGiaVang[0].giaMuaDaDuDoan, 'VND'),
+        giaBanDaDuDoan: formatCurrent(duDoanGiaVang[0].giaBanDaDuDoan, 'VND')
+    });
     return {
         giaMuaDaDuDoan: formatCurrent(duDoanGiaVang[0].giaMuaDaDuDoan, 'VND'),
         giaBanDaDuDoan: formatCurrent(duDoanGiaVang[0].giaBanDaDuDoan, 'VND')

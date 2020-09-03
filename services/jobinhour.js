@@ -19,10 +19,12 @@ const duDoanTheoGio = (hours) => {
         let n = res.n;
         const duDoanGiaMua = regression.linear(res.arrGiaMua, { order: 2, precision: 10 });
         const duDoanGiaBan = regression.linear(res.arrGiaBan, { order: 2, precision: 10 });
-        return new DuDoanGiaVang({
+        let duDoanGiaVang = new DuDoanGiaVang({
             giaMuaDaDuDoan: duDoanGiaMua.predict(hours + n)[1],
             giaBanDaDuDoan: duDoanGiaBan.predict(hours + n)[1]
         });
+        // console.log(duDoanGiaVang);
+        return duDoanGiaVang;
     });
 };
 

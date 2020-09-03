@@ -36,6 +36,7 @@ var server = http.createServer(app);
 
 
 let URL = 'mongodb+srv://anhtuanit:' + hass(passwd) + '@mongodbproduct.ov1li.azure.mongodb.net/giavang?retryWrites=true&w=majority';
+// let URL = 'mongodb://localhost:27017/giavang';
 mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
