@@ -14,6 +14,12 @@
 
 ### ✨ [Demo](https://giavang-gc.herokuapp.com/)
 
+## 1. Golden Price
+![Golden Price](reports/goldprice.PNG)
+
+## 2. Prediction
+![Golden Price](reports/prediction.PNG)
+
 ## Install
 
 ```sh
