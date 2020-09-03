@@ -43,7 +43,7 @@ mongoose.connect(URL, {
 });
 mongoose.connection.once('open', () => {
     crawler();
-    duDoanTheoGio(1)
+    duDoanTheoGio(24)
         .then(async(res) => {
             await DuDoanGiaVang.deleteMany({});
             await res.save();
@@ -51,7 +51,7 @@ mongoose.connection.once('open', () => {
         .catch((err) => console.log(err));
     setInterval(() => {
         crawler();
-        duDoanTheoGio(1)
+        duDoanTheoGio(24)
             .then(async(res) => {
                 await DuDoanGiaVang.deleteMany({});
                 await res.save();
